@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{_layout.html}">
+
+<body>
+
+          <div layout:fragment="breadcrumb">
+                        
+            <div class="page-header">
+                            
+                <nav class="breadcrumb-one" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/ticket">Menu</a></li>
+                        <li class="breadcrumb-item" aria-current="page"><a href="/ticket/tickets">Tickets</a></li>
+                        <li class="breadcrumb-item active"><span>Ticket Menu</span></li>
+                    </ol>
+                </nav>
+
+            </div>
+
+        </div>
+        
+        <!--  BEGIN CONTENT AREA  -->
+        
+            <div layout:fragment="content">
+
+              <div class="layout-px-spacing">
+
+              <div class="row layout-top-spacing">
+
+                <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+
+                <div class="row">
+
+                  <div class="col-lg-4 layout-top-spacing">
+                    <section class="panel">
+                      <div class="panel-body">
+
+                        <div class="card component-card_2">
+                          <div class="card-body">
+                              <h5 class="card-title">Buy Ticket Cash</h5>
+                              <p class="card-text">Etiam sed augue ac justo tincidunt posuere. Vivamus euismod eros, nec risus malesuada.</p>
+                              <a href="/ticket/tickets/buyTicket/buyTicketCash" class="btn btn-primary">Manage</a>
+                          </div>
+                      </div>
+
+                  </div>
+                    </section>
+                  </div>
+
+                  <div class="col-lg-4 layout-top-spacing">
+                    <section class="panel">
+                      <div class="panel-body">
+
+                        <div class="card component-card_2">
+                          <div class="card-body">
+                              <h5 class="card-title">Buy Ticket MNO</h5>
+                              <p class="card-text">Etiam sed augue ac justo tincidunt posuere. Vivamus euismod eros, nec risus malesuada.</p>
+                              <a href="/ticket/tickets/buyTicket/buyTicketMNO" class="btn btn-primary">Manage</a>
+                          </div>
+                      </div>
+
+                  </div>
+                    </section>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+              
+            </div>
+         
+        <!--  END CONTENT AREA  -->
+ 
+
+</body>
+</html>

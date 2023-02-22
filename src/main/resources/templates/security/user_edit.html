@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{_layout.html}">
+
+<body>
+
+
+          <div layout:fragment="breadcrumb">
+                        
+            <div class="page-header">
+                            
+                <nav class="breadcrumb-one" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/security/users">Menu</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><span>User Role</span></li>
+                    </ol>
+                </nav>
+
+            </div>
+
+        </div>
+        
+        <!--  BEGIN CONTENT AREA  -->
+        
+            <div layout:fragment="content">
+
+                <div class="layout-px-spacing">
+
+                    <div class="row layout-spacing">
+    
+                        <!-- Content -->
+                        <div class="col-xl-6 col-lg-6 col-md-7 col-sm-12 layout-top-spacing">
+
+                            <div class="user-profile layout-spacing">
+
+                                <div class="widget-content widget-content-area">
+                                    <form>
+                                        <div class="row mb-4">
+                                            <div class="col">
+                                                <input type="text" class="form-control" th:value="${user.id}" placeholder="Id" readonly>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" th:value="${user.firstname}" placeholder="First name">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-4">
+                                            <div class="col">
+                                                <input type="text" class="form-control" th:value="${user.lastname}" placeholder="Last name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" th:value="${user.username}" placeholder="Username">
+                                            </div>
+                                        </div>
+
+                                        <input type="submit" name="time" class="btn btn-primary">
+                                     
+                                    </form>
+
+                                    <div class="table-responsive layout-top-spacing">
+                                        <table id="zero-config" class="table table-hover" >
+                                          
+                                          <thead>
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each = "userRole:${userRoles}">
+                                                    <td th:text="${userRole.description}"></td>
+
+                                                    <td class="text">
+                                                        <ul class="table-controls">
+                                                            <li><a onclick="return confirm('Unassign role from this user?')" th:href="@{'/security/role/unassign/'+${user.id}+'/' +${userRole.id}}" data-toggle="tooltip" data-placement="top" title="Unassign"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings text-primary"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+
+                                </div>
+
+                            </div>
+                            
+                        </div>
+    
+                        <div class="col-xl-6 col-lg-6 col-md-7 col-sm-12 layout-top-spacing">
+    
+                            <div class="skills layout-spacing ">
+                                
+                                <div id="tableHover" class="col-lg-12 col-12 layout-spacing">
+                                    <div class="statbox widget box box-shadow">
+                                        <div class="widget-header">
+                                            <div class="row">
+                                                <div class="col-md-12 text-left mb-5">
+                                                    <!-- <a id="add-work-platforms" th:href="@{'/applyLoan/'+${client.id}}" class="btn btn-primary">Apply Loan</a> -->
+                                                </div>                 
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive" >
+                                            <table id="profile-config" class="table table-hover" >
+                                              
+                                              <thead>
+                                                    <tr>
+                                                        <th>Description</th>
+                                                        <th>Details</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="userNotRole:${userNotRoles}">
+                                                        <td th:text="${userNotRole.description}"></td>
+                                                        <td th:text="${userNotRole.details}"></td>
+                                                        <td class="text">
+                                                            <ul class="table-controls">
+                                                                <li><a onclick="return confirm('Assign role to this user?')" th:href="@{'/security/role/assign/'+${user.id}+'/' +${userNotRole.id}}" data-toggle="tooltip" data-placement="top" title="Assign"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings text-primary"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></a></li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+                </div>
+                
+            </div>
+         
+        <!--  END CONTENT AREA  -->
+ 
+
+</body>
+</html>
