@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{_layout.html}">
+
+<body>
+
+    <div layout:fragment="breadcrumb">
+                
+        <div class="page-header">
+                        
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/security/users">Users List</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><span>Add User</span></li>
+                </ol>
+            </nav>
+
+        </div>
+
+    </div>
+    
+        <!--  BEGIN CONTENT AREA  -->
+        <div layout:fragment="content">
+
+            <div class="layout-px-spacing">
+
+                <div class="row layout-spacing">
+
+                    <!-- Content -->
+                   
+                    <div class="col-xl-8 col-lg-6 col-md-7 col-sm-12 " style="margin: auto; margin-top: 20px;" >
+
+                        
+                        <div class="skills layout-spacing">
+                            <div class="widget-content widget-content-area">
+                                <h3 class="">Add User</h3>
+                               <form th:action="@{/users/addNew}" method="post"><!--pass url to update borrowes-->
+                                    <div class="form-row mb-4">
+
+                                        <div class="form-group col-md-6">
+                                            <label for="inputFName">First Name</label>
+                                            <input type="text" class="form-control" id="inputFName" placeholder="First Name" name="firstname" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputLName">Last Name</label>
+                                            <input type="text" class="form-control" id="inputLName" placeholder="Last Name" name="lastname" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row mb-4">
+                                        <div class="col">
+                                            <label for="inputUsername">Username</label>
+                                            <input type="text" class="form-control" id="inputNRC" placeholder="Usermane" name="username" maxlength="11" required>
+                                        </div>
+                                        <div class="col">
+                                            <label for="inputPassword">Password</label>
+                                            <input type="text" class="form-control" id="inputPhone" placeholder="Password" name="password" maxlength="10" required>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </form>
+
+                            </div>
+                     
+                    </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+
+
+</body>
+</html>

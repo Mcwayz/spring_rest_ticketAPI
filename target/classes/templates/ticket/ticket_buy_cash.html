@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{_layout.html}">
+
+<body>
+
+
+    <div layout:fragment="breadcrumb">
+                        
+        <div class="page-header">
+                        
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/ticket">Menu</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><a href="/ticket/tickets">Tickets</a></li>
+                    <li class="breadcrumb-item"><a href="/ticket/tickets/buyTicket">Ticket Menu</a></li>
+                    <li class="breadcrumb-item active"><span>Buy Ticket Cash</span></li>
+                </ol>
+            </nav>
+
+        </div>
+
+    </div>
+        
+        <!--  BEGIN CONTENT AREA  -->
+        
+        <div layout:fragment="content">
+
+            <div class="layout-px-spacing">
+
+                <div class="row layout-spacing">
+
+                    <!-- Content -->
+
+                    <div class="col-xl-4 col-lg-6 col-md-5 col-sm-12 layout-top-spacing">
+
+                        <div class="user-profile layout-spacing">
+
+                            <div id="searchLive" class="col-lg-12 layout-spacing">
+                                <div class="statbox widget box box-shadow">
+                                    <div class="widget-header">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                                <h4>Ticket Price</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <form th:action="@{/getPrice}" method="post" enctype="application/json">
+                                        <div class="form-row mb-4">
+                                            <label for="inputType">Ticket Type</label>
+                                            <select class="form-control" id="inputType" name="tickettypeid">
+                                                <option>-SELECT-</option>
+                                                <option th:each="ticketType : ${ticketTypes}" th:value="${ticketType.id}" th:text="${ticketType.name}"></option>
+                                            </select>
+                                        </div>
+                                    
+                                        <div class="form-row mb-4">
+                                            <div class="col">
+                                                <label for="adult">Adult</label>
+                                                <input type="number" class="form-control" id="adult" th:value="${adult}" placeholder="Adult Number" name="adult" maxlength="2" required>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="form-row mb-4">
+                                            <div class="col">
+                                                <label for="adult">Children</label>
+                                                <input type="number" class="form-control" id="children" th:value="${children}" placeholder="Children Number" name="children" maxlength="2" required>
+                                            </div>
+                                        </div>
+                                    
+
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <label for="displayPrice">Price</label>
+                                                    <input type="number" class="form-control" th:value="${price}" id="displayPrice" placeholder="Ticket Price" maxlength="4" readonly>
+                                                </div>
+                                            </div>
+        
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                   
+                    <div class="col-xl-6 col-lg-6 col-md-7 col-sm-12 " style="margin: auto; margin-top: 20px;" >
+
+                        
+                        <div class="skills layout-spacing">
+                            <div class="widget-content widget-content-area">
+                                <h3 class="">Buy Ticket</h3>
+                               <form th:action="@{/clients}" method="post"><!--pass url to update borrowes-->
+
+                                <div class="form-row mb-4">
+                                    <label for="inputType">Ticket Type</label>
+                                    <select class="form-control" id="inputType" name="tickettypeid">
+                                        <option>-SELECT-</option>
+                                    <option 
+                                        th:each="ticketType : ${ticketTypes}" 
+                                        th:value="${ticketType.id}" 
+                                        th:text="${ticketType.name}">
+                                    </option>
+                                    </select>
+                                </div>
+
+                                    <div class="form-row mb-4">
+                                        <div class="col">
+                                            <label for="inputAdult">Adult</label>
+                                            <input type="number" class="form-control" id="inputAdult" placeholder="Adult Number" name="adult" maxlength="11" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row mb-4">
+                                        <div class="col">
+                                            <label for="inputChildren">Children</label>
+                                            <input type="number" class="form-control" id="inputChildren" placeholder="Children Number" name="children" maxlength="10" required>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Buy</button>
+                                </form>
+
+                            </div>
+                     
+                    </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+         
+        <!--  END CONTENT AREA  -->
+ 
+
+</body>
+</html>
